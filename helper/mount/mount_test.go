@@ -223,7 +223,7 @@ func (s *MountSuite) TestJoin(c *C) {
 	c.Assert(s.Source.JoinArgs, HasLen, 0)
 }
 
-func (s *MountSuite) TestReadDirInMount(c *C) {
+func (s *MountSuite) TestReadDirInMountAndEmpty(c *C) {
 	_, err := s.Helper.ReadDir("foo/bar/qux")
 	c.Assert(err, IsNil)
 
@@ -261,7 +261,7 @@ func (s *MountSuite) TestLstat(c *C) {
 	c.Assert(s.Source.LstatArgs, HasLen, 0)
 }
 
-func (s *MountSuite) TestLstatInMount(c *C) {
+func (s *MountSuite) TestLstatInMountAndEmpty(c *C) {
 	_, err := s.Helper.Lstat("foo/bar/qux")
 	c.Assert(err, IsNil)
 
@@ -280,7 +280,7 @@ func (s *MountSuite) TestSymlink(c *C) {
 	c.Assert(s.Source.SymlinkArgs, HasLen, 0)
 }
 
-func (s *MountSuite) TestSymlinkCrossMount(c *C) {
+func (s *MountSuite) TestSymlinkCrossMountAndEmpty(c *C) {
 	err := s.Helper.Symlink("../foo", "bar/qux")
 	c.Assert(err, NotNil)
 
@@ -294,7 +294,7 @@ func (s *MountSuite) TestSymlinkCrossMount(c *C) {
 	c.Assert(err, NotNil)
 }
 
-func (s *MountSuite) TestSymlinkInMount(c *C) {
+func (s *MountSuite) TestSymlinkInMountAndEmpty(c *C) {
 	err := s.Helper.Symlink("../baz", "foo/bar/qux")
 	c.Assert(err, IsNil)
 
